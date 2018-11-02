@@ -6,3 +6,5 @@ return 'hello %d '%id
 
 并且return后面可以自主定义状态吗；
 
+如果要想模板显示，必须要创建一个templates模板文件夹，并且html文件必须放在这个文件夹下，而且，templates文件
+必须要和运行文件的文件夹要同级目录；
