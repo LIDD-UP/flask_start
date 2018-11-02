@@ -1,0 +1,8 @@
+路由传参实例(传递的参数默认是string类型的；）：通过尖括号来进行传参；
+
+@app.route('/user/<int:id>')
+def user(id):
+return 'hello %d '%id
+
+并且return后面可以自主定义状态吗；
+
