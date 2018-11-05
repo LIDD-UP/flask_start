@@ -18,7 +18,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY']='1'
 
 #自定义表单类，文本字段、密码字段、提交按钮
-class Login(Form):
+class Login(FlaskForm):
     us = StringField(label=u'用户：',validators=[DataRequired()])
     ps = PasswordField(label=u'密码',validators=[DataRequired(),EqualTo('ps2','err')])
     ps2 = PasswordField(label=u'确认密码',validators=[DataRequired()])
