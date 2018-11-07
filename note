@@ -8,3 +8,10 @@ return 'hello %d '%id
 
 如果要想模板显示，必须要创建一个templates模板文件夹，并且html文件必须放在这个文件夹下，而且，templates文件
 必须要和运行文件的文件夹要同级目录；
+
+  File "F:\virtualenv\Flask\lib\site-packages\flask\app.py", line 1213, in add_url_rule
+    rule = self.url_rule_class(rule, methods=methods, **options)
+TypeError: __init__() got an unexpected keyword argument 'method'
+那个参数是methods还是有参数都需要大写（参数值）
+
+自己没有理解的过程，表单登陆问题；

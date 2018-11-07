@@ -1,11 +1,12 @@
 # -*- coding:utf-8 _*-  
 """ 
 @author:Administrator
-@file: mysql_test.py
-@time: 2018/11/5
+@file: use_web_form_to_login.py
+@time: 2018/11/7
 """
-from flask import Flask
+from flask import Flask,request,render_template
 from flask_sqlalchemy import SQLAlchemy
+
 
 
 app = Flask(__name__)
@@ -43,27 +44,16 @@ class User(db.Model):
 
     def __repr__(self):
         return 'User:%s'%self.name
+
+@app.route('/login',methods=['GET','POST'])
+def login():
+    if request.method=='POST':
+        username=request.form['username']
+        password = request.form['password']
+        print(username,password)
+        return password
+    return render_template('index.html',method="")
+
+
 if __name__ == '__main__':
-    # db.drop_all()
-    # db.create_all()
-    # ro1 = Role(name='admin')
-    # ro2 = Role(name='user')
-    # db.session.add_all([ro1,ro2])
-    # db.session.commit()
-    # us1 = User(name='wang',email='wang@163.com',pswd='123456',role_id=ro1.id)
-    # us2 = User(name='zhang',email='zhang@189.com',pswd='201512',role_id=ro2.id)
-    # us3 = User(name='chen',email='chen@126.com',pswd='987654',role_id=ro2.id)
-    # us4 = User(name='zhou',email='zhou@163.com',pswd='456789',role_id=ro1.id)
-    # db.session.add_all([us1,us2,us3,us4])
-    # db.session.commit()
-    # app.run(debug=True)
-
-    data = User.query.get(2)
-    print(data.name)
-    # for data in all_data:
-    #     print(data)
-    # print(data.name)
-
-    # db.session.delete(user)
-    # db.session.commit()
-
+    app.run(debug=True)
